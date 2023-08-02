@@ -1,0 +1,41 @@
+{% extends "../shared/base.html" %}
+{% load static %}
+{% block page_title %}Post List{% endblock %}
+{% block head_style %}
+    <!-- This should move to .css -->
+    <style>
+        table, th, td {
+            border: 1px solid black;
+        }
+    </style>
+{% endblock %}
+{% block body %}
+    <h1>Post List</h1>
+    <div id="app">
+        <table>
+            <thead>
+            <tr>
+                <th>Title</th>
+                <th>Author</th>
+                <th>Most Recently Comment</th>
+            </tr>
+            </thead>
+            <tr v-for="post in post_data.results" v-bind:key="post.id">
+                <td>${ post.title }</td>
+                <td>${ post.author_nickname }</td>
+                <td>${ $filters.str_limit(post.most_recent_comment, 50) }</td>
+            </tr>
+        </table>
+        <table>
+            <tr>
+                <td><input v-model="page_size" @change="getData(page)"
+                           placeholder="Input a number"
+                           type="number" min="1" step="1"/></td>
+                <td><button v-if="post_data.previous" @click="getData(--page)">Prev</button></td>
+                <td><button v-if="post_data.next" @click="getData(++page)">Next</button></td>
+            </tr>
+        </table>
+    </div>
+
+    <script src={% static 'components/post_list.js' %}></script>
+{% endblock %}
