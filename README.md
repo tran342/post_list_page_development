@@ -85,6 +85,9 @@ python manage.py feeddata --settings=conf.settings.dev
 # Run project
 python manage.py runserver --settings=conf.settings.dev
 
+# Access the post list page at
+http://127.0.0.1:8000/posts
+
 # Run unit test
 python manage.py test --settings=conf.settings.test
 ```
