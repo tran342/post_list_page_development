@@ -6,8 +6,9 @@ from models.post import models
 class PublicPostSerializer(serializers.ModelSerializer):
     class Meta:
         model = models.Post
-        fields = ('id', 'title', 'content', 'author_nickname', 'created_at', 'updated_at',
-                  'most_recent_comment')
+        fields = (
+            'id', 'title', 'content', 'author_nickname', 'created_at', 'updated_at', 'most_recent_comment'
+        )
 
     author_nickname = serializers.SerializerMethodField()
     most_recent_comment = serializers.SerializerMethodField()
