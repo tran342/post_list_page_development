@@ -1,5 +1,8 @@
 # Post List Page Development
 
+- This is a sample project to show a list of `Post` and with their most recent `Comment`
+- The project using basic Django template page and loading data by API endpoints via VueJS
+
 ## Project structure
 
 I structure this project because of the following reasons:
